@@ -32,25 +32,37 @@
   </script>
   <style>
     body { -webkit-font-smoothing: antialiased; background: #e8e5de; color: #1f1b2e; }
-    .serif-tight { letter-spacing: -0.02em; }
+    .serif-tight { letter-spacing: -0.035em; }
 
-    /* Article hover-reveal: month + headline always visible, intro appears on hover/focus.
-       On touch devices (no hover), the intro is always shown. */
-    .reveal { display: grid; grid-template-rows: 1fr; opacity: 1; transition: grid-template-rows .35s ease, opacity .35s ease; }
+    .reveal {
+      display: grid;
+      grid-template-rows: 1fr;
+      opacity: 1;
+      transition: grid-template-rows .35s ease, opacity .35s ease;
+    }
     .reveal > div { overflow: hidden; min-height: 0; }
+
     @media (hover: hover) {
       .reveal { grid-template-rows: 0fr; opacity: 0; }
       .article:hover .reveal,
       .article:focus-within .reveal { grid-template-rows: 1fr; opacity: 1; }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
   </style>
 </head>
+
 <body class="font-sans min-h-screen selection:bg-blush selection:text-ink">
 
-  <!-- HERO (lavender band) -->
+  <!-- HERO -->
   <header class="bg-lav">
-    <div class="mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 sm:px-8 md:grid-cols-[1.15fr_0.85fr] md:py-20">
-
+    <div class="mx-auto grid max-w-6xl items-center gap-10 px-5 py-20 sm:px-8 md:grid-cols-[1.15fr_0.85fr] md:py-28">
       <div>
         <div class="inline-flex items-center gap-2 rounded-full border border-ink/20 bg-white/30 px-3 py-1 text-xs font-medium text-ink/80">
           <span class="relative flex h-2 w-2">
@@ -60,10 +72,12 @@
           Open to FinTech PM / APM &amp; Founder's Office roles
         </div>
 
-        <h1 class="serif-tight mt-6 font-serif text-5xl font-light leading-[1.05] sm:text-7xl">Hey, I’m Ishan.</h1>
+        <h1 class="serif-tight mt-6 font-serif text-6xl font-light leading-[1.05] sm:text-8xl">Hey, I’m Ishan.</h1>
+
         <p class="mt-4 font-serif text-xl text-ink/80 sm:text-2xl">
           Finance &amp; Data Science @ Indiana University (Kelley)
         </p>
+
         <p class="mt-5 max-w-xl text-base leading-relaxed text-ink/80 sm:text-lg">
           Hi! I’m studying Finance with a Data Science minor and building my path into Product Management. I’m fascinated by AI and FinTech, but most of all, I’m a hands-on problem solver—the kind of person who skips the fluff, dives into the details, and gets straight to work.
         </p>
@@ -84,25 +98,53 @@
         </nav>
       </div>
 
-      <!-- Photo -->
       <div class="mx-auto w-full max-w-sm md:max-w-none">
-        <div class="aspect-[4/5] overflow-hidden rounded-[2.5rem] bg-[#f0a98a]">
+        <div class="aspect-[4/5] overflow-hidden rounded-[2rem] bg-[#f0a98a]">
           <img src="ishan.jpeg" alt="Ishan Bhalerao" class="h-full w-full object-cover object-top" />
         </div>
       </div>
-
     </div>
   </header>
 
   <main>
 
-    <!-- AT A GLANCE (navy band) -->
+    <!-- MY APPROACH -->
+    <section aria-labelledby="approach-heading" class="grid bg-cream md:grid-cols-2">
+      <div class="flex min-h-72 items-center justify-center bg-[#d4cec4] p-10 md:min-h-[590px]" aria-hidden="true">
+        <div class="flex aspect-[4/3] w-full max-w-md flex-col items-center justify-center rounded-[2rem] border border-ink/20 bg-lav/70 text-center shadow-[22px_22px_0_#b5a86f]">
+          <span class="font-serif text-5xl font-light sm:text-7xl">Ideas into<br><em>action.</em></span>
+          <span class="mt-5 text-xs uppercase tracking-[.25em]">Finance · Data · Product</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col justify-center px-8 py-16 sm:px-14 lg:px-20">
+        <h2 id="approach-heading" class="font-serif text-4xl font-light sm:text-5xl">My Approach</h2>
+
+        <div class="mt-12 max-w-md">
+          <h3 class="font-serif text-2xl">Curious by default</h3>
+          <p class="mt-3 leading-relaxed text-ink/75">
+            I start with the people and the problem. I ask questions, study the data, and look for the details that make a product genuinely useful.
+          </p>
+        </div>
+
+        <div class="mt-10 max-w-md">
+          <h3 class="font-serif text-2xl">Built to ship</h3>
+          <p class="mt-3 leading-relaxed text-ink/75">
+            I turn research into clear specifications, working prototypes, and measurable decisions. My work spans financial systems, campus transit, and AI economics.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- AT A GLANCE -->
     <section aria-label="At a glance" class="bg-navy text-[#c9cbe0]">
       <div class="mx-auto grid max-w-6xl gap-10 px-5 py-14 text-center sm:px-8 md:grid-cols-3">
-
         <div class="flex flex-col items-center">
           <div class="flex h-14 w-14 items-center justify-center rounded-full border border-dashed border-[#8f93b8]">
-            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2 9l10-5 10 5-10 5z"/>
+              <path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/>
+            </svg>
           </div>
           <h2 class="mt-4 font-serif text-xl text-[#e4e5f2]">Kelley School of Business</h2>
           <p class="mt-1 text-sm text-[#8f93b8]">B.S. Finance, Indiana University</p>
@@ -110,7 +152,9 @@
 
         <div class="flex flex-col items-center">
           <div class="flex h-14 w-14 items-center justify-center rounded-full border border-dashed border-[#8f93b8]">
-            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>
+            </svg>
           </div>
           <h2 class="mt-4 font-serif text-xl text-[#e4e5f2]">Data Science Minor</h2>
           <p class="mt-1 text-sm text-[#8f93b8]">Data-driven product thinking</p>
@@ -118,25 +162,29 @@
 
         <div class="flex flex-col items-center">
           <div class="flex h-14 w-14 items-center justify-center rounded-full border border-dashed border-[#8f93b8]">
-            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 17v4M17 19h4"/></svg>
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/>
+              <path d="M19 17v4M17 19h4"/>
+            </svg>
           </div>
           <h2 class="mt-4 font-serif text-xl text-[#e4e5f2]">AI &amp; FinTech</h2>
           <p class="mt-1 text-sm text-[#8f93b8]">Product management focus</p>
         </div>
-
       </div>
     </section>
 
-    <!-- PROJECTS (cream band, olive cards) -->
+    <!-- PROJECTS -->
     <section id="projects" aria-labelledby="projects-heading" class="bg-cream">
-      <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
-        <h2 id="projects-heading" class="serif-tight text-center font-serif text-4xl font-light sm:text-6xl">Projects &amp; Product Specs</h2>
-        <p class="mx-auto mt-4 max-w-xl text-center text-ink/70">Hands-on execution, software engines, technical PRDs, and deep-dive problem solving.</p>
+      <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+        <h2 id="projects-heading" class="serif-tight text-center font-serif text-4xl font-light sm:text-6xl">
+          Projects &amp; Product Specs
+        </h2>
+        <p class="mx-auto mt-4 max-w-xl text-center text-ink/70">
+          Hands-on execution, software engines, technical PRDs, and deep-dive problem solving.
+        </p>
 
         <div class="mt-12 grid gap-6 md:grid-cols-3">
-
-          <!-- Project 1 -->
-          <article class="flex flex-col rounded-[2rem] bg-olive p-7 transition hover:-translate-y-1">
+          <article class="flex min-h-[340px] flex-col rounded-[2rem] bg-olive p-9 transition hover:-translate-y-1">
             <div class="flex flex-wrap gap-2">
               <span class="rounded-full border border-ink/30 px-2.5 py-0.5 text-xs">Python</span>
               <span class="rounded-full border border-ink/30 px-2.5 py-0.5 text-xs">yfinance API</span>
@@ -147,11 +195,12 @@
               Multi-currency settlement engine built with real-time market telemetry, currency fallback routing, and atomic state validation.
             </p>
             <a href="https://github.com/ishanabhalerao/stock-exchange-simulator" target="_blank" rel="noopener noreferrer"
-               class="mt-6 inline-block w-fit border-b border-ink pb-0.5 font-serif text-lg">View Project</a>
+               class="mt-6 inline-block w-fit border-b border-ink pb-0.5 font-serif text-lg">
+              View Project
+            </a>
           </article>
 
-          <!-- Project 2: CrimsonRide PRD -->
-          <article class="flex flex-col rounded-[2rem] bg-olive p-7 transition hover:-translate-y-1">
+          <article class="flex min-h-[340px] flex-col rounded-[2rem] bg-olive p-9 transition hover:-translate-y-1">
             <div class="flex flex-wrap gap-2">
               <span class="rounded-full border border-ink/30 px-2.5 py-0.5 text-xs">Technical Product Spec</span>
             </div>
@@ -160,11 +209,12 @@
               Product spec for a dedicated transit and navigation hub for IU Campus Bus and Bloomington Transit riders. Replaces the unreliable bus tracker with traffic-adjusted ETAs, accurate active-bus counts, building-to-stop search, and a decluttered, labeled campus map. Target launch: December 2026.
             </p>
             <a href="crimsonride-prd.pdf" target="_blank" rel="noopener noreferrer"
-               class="mt-6 inline-block w-fit border-b border-ink pb-0.5 font-serif text-lg">Download Full PRD (PDF)</a>
+               class="mt-6 inline-block w-fit border-b border-ink pb-0.5 font-serif text-lg">
+              Download Full PRD (PDF)
+            </a>
           </article>
 
-          <!-- Project 3: Capital One (coming soon) -->
-          <article class="flex flex-col rounded-[2rem] bg-olive/60 p-7">
+          <article class="flex min-h-[340px] flex-col rounded-[2rem] bg-olive/70 p-9">
             <div class="flex flex-wrap gap-2">
               <span class="rounded-full border border-ink/30 px-2.5 py-0.5 text-xs">Technical PRD</span>
               <span class="rounded-full border border-ink/30 px-2.5 py-0.5 text-xs">FinTech UX</span>
@@ -179,24 +229,27 @@
               <span class="rounded-full border border-ink/30 px-2 py-0.5 font-sans text-[10px] uppercase tracking-wider">In progress</span>
             </span>
           </article>
-
         </div>
       </div>
     </section>
 
-    <!-- MONTHLY WRITES (lavender band; intro revealed on hover) -->
-    <section id="writing" aria-labelledby="writing-heading" class="bg-lav">
-      <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
-        <h2 id="writing-heading" class="serif-tight text-center font-serif text-4xl font-light sm:text-6xl">Monthly Writes &amp; Market Teardowns</h2>
-        <p class="mx-auto mt-4 max-w-xl text-center text-ink/70">Breakdowns of tech economics, pricing strategies, and product positioning. <span class="hidden lg:inline">Hover an article for the intro.</span></p>
+    <!-- WRITING -->
+    <section id="writing" aria-labelledby="writing-heading" class="bg-cream">
+      <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+        <h2 id="writing-heading" class="serif-tight text-center font-serif text-4xl font-light sm:text-6xl">
+          Monthly Writes &amp; Market Teardowns
+        </h2>
+        <p class="mx-auto mt-4 max-w-xl text-center text-ink/70">
+          Breakdowns of tech economics, pricing strategies, and product positioning.
+          <span class="hidden lg:inline">Hover an article for the intro.</span>
+        </p>
 
         <div class="mt-12 grid gap-6 md:grid-cols-2">
-
-          <!-- Article: October 2026 -->
           <article class="article rounded-[2rem] border border-white/50 bg-white/30 p-7 transition hover:bg-white/45">
             <span class="inline-block rounded-full bg-ink px-3 py-1 text-xs font-medium text-cream">October 2026</span>
             <h3 class="mt-4 font-serif text-2xl leading-snug">
-              <a href="hidden-cost-of-ai.pdf" target="_blank" rel="noopener noreferrer" class="underline decoration-transparent underline-offset-4 transition hover:decoration-ink focus:decoration-ink focus:outline-none">
+              <a href="hidden-cost-of-ai.pdf" target="_blank" rel="noopener noreferrer"
+                 class="underline decoration-transparent underline-offset-4 transition hover:decoration-ink focus:decoration-ink focus:outline-none">
                 The Hidden Math of AI Pricing: Why Output Tokens Break Unit Economics
               </a>
             </h3>
@@ -211,18 +264,21 @@
                   Why does asking AI to generate text cost 500% more than giving it a prompt? From GPU memory bandwidth bottlenecks to McKinsey budget overruns, this article explores the hidden unit economics behind Large Language Models—and provides a practical framework for PMs, founders, and engineers to optimize AI spend without sacrificing output quality.
                 </p>
                 <a href="hidden-cost-of-ai.pdf" target="_blank" rel="noopener noreferrer"
-                   class="mt-5 inline-block border-b border-ink pb-0.5 font-serif text-lg">Read Full Article (PDF)</a>
+                   class="mt-5 inline-block border-b border-ink pb-0.5 font-serif text-lg">
+                  Read Full Article (PDF)
+                </a>
               </div>
             </div>
           </article>
 
-          <!-- Article: November 2026 (upcoming) -->
           <article class="article rounded-[2rem] border border-dashed border-ink/40 p-7 transition hover:bg-white/20" tabindex="0">
             <div class="flex flex-wrap items-center gap-2">
               <span class="inline-block rounded-full border border-ink/50 px-3 py-1 text-xs font-medium">November 2026</span>
               <span class="inline-block rounded-full bg-blush px-3 py-1 text-xs font-medium">Drafting</span>
             </div>
-            <h3 class="mt-4 font-serif text-2xl leading-snug">The Neobank Dilemma: How Online Banks Monetize Without Overdraft Fees</h3>
+            <h3 class="mt-4 font-serif text-2xl leading-snug">
+              The Neobank Dilemma: How Online Banks Monetize Without Overdraft Fees
+            </h3>
             <div class="reveal">
               <div>
                 <div class="mt-4 flex flex-wrap gap-2">
@@ -236,17 +292,18 @@
               </div>
             </div>
           </article>
-
         </div>
       </div>
     </section>
 
-    <!-- CONTACT + FOOTER (pink band with curved bottom over lavender footer) -->
+    <!-- CONTACT -->
     <div class="bg-lav">
       <section id="contact" aria-labelledby="contact-heading" class="rounded-b-[3rem] bg-blush">
-        <div class="mx-auto max-w-3xl px-5 py-16 text-center sm:px-8 sm:py-24">
+        <div class="mx-auto max-w-3xl px-5 py-20 text-center sm:px-8 sm:py-32">
           <h2 id="contact-heading" class="serif-tight font-serif text-4xl font-light sm:text-6xl">Get in Touch!</h2>
-          <p class="mx-auto mt-4 max-w-lg text-ink/80">Hiring for a FinTech PM, APM, or Founder's Office role? I’d love to hear from you.</p>
+          <p class="mx-auto mt-4 max-w-lg text-ink/80">
+            Hiring for a FinTech PM, APM, or Founder's Office role? I’d love to hear from you.
+          </p>
           <div class="mt-8 flex flex-wrap justify-center gap-3">
             <a href="mailto:ishan.a.bhalerao@gmail.com"
                class="inline-flex items-center rounded-full border border-ink/60 bg-cream px-6 py-2.5 text-sm font-medium transition hover:-translate-y-0.5">
@@ -268,7 +325,9 @@
         <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-5 py-10 sm:flex-row sm:px-8">
           <span class="font-serif text-3xl">Ishan Bhalerao</span>
           <div class="text-center text-sm text-ink/80 sm:text-right">
-            <a href="mailto:ishan.a.bhalerao@gmail.com" class="underline-offset-4 hover:underline">ishan.a.bhalerao@gmail.com</a>
+            <a href="mailto:ishan.a.bhalerao@gmail.com" class="underline-offset-4 hover:underline">
+              ishan.a.bhalerao@gmail.com
+            </a>
             <div class="mt-1 text-ink/60">© 2026 Ishan Bhalerao</div>
           </div>
         </div>
@@ -276,6 +335,5 @@
     </div>
 
   </main>
-
 </body>
 </html>
