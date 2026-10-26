@@ -1,418 +1,831 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ishan Bhalerao — Finance, Data Science & Product</title>
-  <meta name="description" content="Ishan Bhalerao: Finance & Data Science @ Indiana University (Kelley). FinTech product, technical PRDs, and unit economics." />
-  <meta name="theme-color" content="#b9b3c9" />
+  <meta name="theme-color" content="#0A0A0A" />
+  <meta
+    name="description"
+    content="Ishan Bhalerao — Finance and Data Science student at Indiana University, focused on product management, AI, and FinTech."
+  />
+
+  <title>Ishan Bhalerao | Finance, Data Science & Product</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&display=swap" rel="stylesheet" />
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"DM Sans"', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
-            serif: ['Fraunces', 'Georgia', 'serif']
-          },
-          colors: {
-            lav: '#b9b3c9',
-            cream: '#e8e5de',
-            olive: '#b5a86f',
-            navy: '#141a30',
-            blush: '#e8a9a4',
-            ink: '#1f1b2e'
-          }
-        }
-      }
-    };
-  </script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
+    :root {
+      --black: #0A0A0A;
+      --blue: #007BA7;
+      --rose: #FF2D95;
+      --white: #FFFFFF;
+      --muted: #ADADAD;
+      --line: rgba(255, 255, 255, 0.15);
+      --panel: #151515;
+      --font-sans: "DM Sans", Arial, sans-serif;
+      --font-serif: "Fraunces", Georgia, serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
+      margin: 0;
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-sans);
       -webkit-font-smoothing: antialiased;
-      background: #e8e5de;
-      color: #1f1b2e;
     }
 
-    .serif-tight {
-      letter-spacing: -0.035em;
+    a {
+      color: inherit;
     }
 
-    .reveal {
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    ::selection {
+      background: var(--rose);
+      color: var(--black);
+    }
+
+    .container {
+      width: min(100% - 48px, 1120px);
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--blue);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin: 14px 0 0;
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 5vw, 4.25rem);
+      font-weight: 400;
+      letter-spacing: -0.045em;
+      line-height: 1.12;
+    }
+
+    .section-intro {
+      max-width: 650px;
+      margin: 20px 0 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 22px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+      transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .button-primary:hover {
+      background: #00688D;
+    }
+
+    .button-outline {
+      border-color: var(--line);
+      color: var(--white);
+    }
+
+    .button-outline:hover {
+      border-color: var(--rose);
+    }
+
+    /* Navigation */
+
+    .site-header {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      min-height: 78px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .wordmark {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      letter-spacing: -0.04em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .wordmark span {
+      color: var(--rose);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 180ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--white);
+    }
+
+    /* Hero */
+
+    .hero {
       display: grid;
-      grid-template-rows: 1fr;
-      opacity: 1;
-      transition: grid-template-rows .35s ease, opacity .35s ease;
+      min-height: 650px;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      align-items: center;
+      gap: clamp(48px, 8vw, 112px);
+      padding-block: 100px;
     }
 
-    .reveal > div {
-      overflow: hidden;
-      min-height: 0;
+    .hero .eyebrow {
+      margin-bottom: 25px;
     }
 
-    @media (hover: hover) {
-      .reveal {
-        grid-template-rows: 0fr;
-        opacity: 0;
+    .hero h1 {
+      max-width: 750px;
+      margin: 0;
+      font-family: var(--font-serif);
+      font-size: clamp(4rem, 8vw, 7.2rem);
+      font-weight: 400;
+      letter-spacing: -0.065em;
+      line-height: 0.98;
+    }
+
+    .hero h1 span {
+      color: var(--rose);
+    }
+
+    .hero-subtitle {
+      margin: 28px 0 0;
+      font-size: clamp(1.15rem, 2vw, 1.5rem);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .hero-description {
+      max-width: 620px;
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.85;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .portrait {
+      position: relative;
+      width: 100%;
+      max-width: 390px;
+      margin-left: auto;
+    }
+
+    .portrait::after {
+      position: absolute;
+      z-index: -1;
+      right: -15px;
+      bottom: -15px;
+      width: 100%;
+      height: 100%;
+      border: 1px solid var(--blue);
+      content: "";
+    }
+
+    .portrait img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      object-fit: cover;
+      object-position: top;
+    }
+
+    /* Credentials */
+
+    .credentials {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .credential {
+      padding: 42px 30px;
+    }
+
+    .credential:first-child {
+      padding-left: 0;
+    }
+
+    .credential + .credential {
+      border-left: 1px solid var(--line);
+    }
+
+    .credential-number {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--rose);
+      font-family: var(--font-serif);
+      font-size: 2rem;
+    }
+
+    .credential h2 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .credential p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    /* Projects */
+
+    .section {
+      padding-block: 110px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 48px;
+    }
+
+    .card {
+      display: flex;
+      min-height: 390px;
+      flex-direction: column;
+      padding: 30px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      transition: border-color 180ms ease, transform 180ms ease;
+    }
+
+    .card:hover {
+      border-color: var(--blue);
+      transform: translateY(-4px);
+    }
+
+    .card-index {
+      color: var(--rose);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+    }
+
+    .card h3 {
+      margin: 38px 0 16px;
+      font-family: var(--font-serif);
+      font-size: clamp(1.45rem, 2.2vw, 1.95rem);
+      font-weight: 400;
+      line-height: 1.25;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.75;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 23px;
+    }
+
+    .tag {
+      padding: 5px 8px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.7rem;
+    }
+
+    .card-link {
+      align-self: flex-start;
+      margin-top: auto;
+      padding-top: 28px;
+      color: var(--white);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration-color: var(--blue);
+      text-underline-offset: 6px;
+    }
+
+    .card-link:hover {
+      text-decoration-color: var(--rose);
+    }
+
+    .coming-soon {
+      margin-top: auto;
+      padding-top: 28px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* Writing */
+
+    .writing-section {
+      border-top: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .writing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 48px;
+    }
+
+    .article {
+      display: flex;
+      min-height: 310px;
+      flex-direction: column;
+      padding: 32px;
+      border: 1px solid var(--line);
+      background: var(--black);
+      transition: border-color 180ms ease;
+    }
+
+    .article:hover {
+      border-color: var(--blue);
+    }
+
+    .article-date {
+      color: var(--rose);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .article h3 {
+      margin: 28px 0 16px;
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    .article h3 a {
+      text-decoration: none;
+    }
+
+    .article h3 a:hover {
+      color: var(--blue);
+    }
+
+    .article p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.75;
+    }
+
+    .article .card-link,
+    .article .coming-soon {
+      padding-top: 24px;
+    }
+
+    /* Contact and footer */
+
+    .contact {
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .contact .container {
+      max-width: 760px;
+    }
+
+    .contact .section-intro {
+      margin-inline: auto;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      display: flex;
+      min-height: 95px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      color: var(--white);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--rose);
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr 0.75fr;
+        gap: 40px;
       }
 
-      .article:hover .reveal,
-      .article:focus-within .reveal {
-        grid-template-rows: 1fr;
-        opacity: 1;
+      .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: min(100% - 36px, 1120px);
+      }
+
+      .nav {
+        min-height: 70px;
+      }
+
+      .nav-links {
+        gap: 16px;
+      }
+
+      .nav-links a {
+        font-size: 0.78rem;
+      }
+
+      .nav-links a:nth-child(2) {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 55px;
+        padding-block: 80px;
+      }
+
+      .portrait {
+        max-width: 360px;
+        margin-inline: auto;
+      }
+
+      .credentials-grid,
+      .project-grid,
+      .writing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .credential,
+      .credential:first-child {
+        padding: 28px 0;
+      }
+
+      .credential + .credential {
+        border-top: 1px solid var(--line);
+        border-left: 0;
+      }
+
+      .section {
+        padding-block: 80px;
+      }
+
+      .card,
+      .article {
+        min-height: auto;
+      }
+
+      .card-link,
+      .coming-soon {
+        margin-top: 24px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        justify-content: center;
+        padding-block: 28px;
+        text-align: center;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
       *, *::before, *::after {
-        scroll-behavior: auto !important;
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
       }
     }
   </style>
 </head>
 
-<body class="min-h-screen font-sans selection:bg-blush selection:text-ink">
+<body>
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main navigation">
+      <a class="wordmark" href="#top">Ishan<span>.</span></a>
 
-  <!-- HERO -->
-  <header class="bg-lav">
-    <div class="mx-auto grid max-w-6xl items-center gap-10 px-5 py-20 sm:px-8 md:grid-cols-[1.15fr_0.85fr] md:py-28">
-      <div>
-        <div class="inline-flex items-center gap-2 rounded-full border border-ink/20 bg-white/30 px-3 py-1 text-xs font-medium text-ink/80">
-          <span class="relative flex h-2 w-2">
-            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-600 opacity-60"></span>
-            <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-600"></span>
-          </span>
-          Open to FinTech PM / APM &amp; Founder's Office roles
-        </div>
-
-        <h1 class="serif-tight mt-6 font-serif text-6xl font-light leading-[1.05] sm:text-8xl">
-          Hey, I’m Ishan.
-        </h1>
-
-        <p class="mt-4 font-serif text-xl text-ink/80 sm:text-2xl">
-          Finance &amp; Data Science @ Indiana University (Kelley)
-        </p>
-
-        <p class="mt-5 max-w-xl text-base leading-relaxed text-ink/80 sm:text-lg">
-          Hi! I’m studying Finance with a Data Science minor and building my path into Product Management. I’m fascinated by AI and FinTech, but most of all, I’m a hands-on problem solver—the kind of person who skips the fluff, dives into the details, and gets straight to work.
-        </p>
-
-        <nav aria-label="Contact links" class="mt-8 flex flex-wrap gap-3">
-          <a href="mailto:ishan.a.bhalerao@gmail.com"
-             class="inline-flex items-center rounded-full border border-ink/60 bg-blush px-6 py-2.5 text-sm font-medium text-ink transition hover:-translate-y-0.5 hover:bg-[#efb9b4]">
-            Contact Email
-          </a>
-
-          <a href="https://www.linkedin.com/in/ishan-bhalerao-018367415/"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="inline-flex items-center rounded-full border border-ink/40 px-6 py-2.5 text-sm font-medium text-ink transition hover:-translate-y-0.5 hover:bg-white/40">
-            LinkedIn
-          </a>
-
-          <a href="https://github.com/ishanabhalerao"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="inline-flex items-center rounded-full border border-ink/40 px-6 py-2.5 text-sm font-medium text-ink transition hover:-translate-y-0.5 hover:bg-white/40">
-            GitHub
-          </a>
-        </nav>
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#writing">Writing</a>
+        <a href="#contact">Contact</a>
       </div>
-
-      <div class="mx-auto w-full max-w-sm md:max-w-none">
-        <div class="aspect-[4/5] overflow-hidden rounded-[2rem] bg-[#f0a98a]">
-          <img
-            src="ishan.jpeg"
-            alt="Ishan Bhalerao"
-            class="h-full w-full object-cover object-top"
-          />
-        </div>
-      </div>
-    </div>
+    </nav>
   </header>
 
-  <main>
+  <main id="top">
+    <section class="container hero" aria-labelledby="hero-heading">
+      <div>
+        <p class="eyebrow">Finance · Data Science · Product</p>
 
-    <!-- AT A GLANCE -->
-    <section aria-label="At a glance" class="bg-navy text-[#c9cbe0]">
-      <div class="mx-auto grid max-w-6xl gap-10 px-5 py-14 text-center sm:px-8 md:grid-cols-3">
+        <h1 id="hero-heading">Hey, I’m Ishan<span>.</span></h1>
 
-        <div class="flex flex-col items-center">
-          <div class="flex h-14 w-14 items-center justify-center rounded-full border border-dashed border-[#8f93b8]">
-            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M2 9l10-5 10 5-10 5z"/>
-              <path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/>
-            </svg>
-          </div>
+        <p class="hero-subtitle">
+          Finance &amp; Data Science at Indiana University’s Kelley School of Business.
+        </p>
 
-          <h2 class="mt-4 font-serif text-xl text-[#e4e5f2]">
-            Kelley School of Business
-          </h2>
-          <p class="mt-1 text-sm text-[#8f93b8]">
-            B.S. Finance, Indiana University
-          </p>
+        <p class="hero-description">
+          I’m studying Finance with a Data Science minor and building my path into Product Management. I’m interested in AI and FinTech, and I like turning complex problems into clear, useful products.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">Explore my work</a>
+          <a class="button button-outline" href="mailto:ishan.a.bhalerao@gmail.com">Get in touch</a>
         </div>
+      </div>
 
-        <div class="flex flex-col items-center">
-          <div class="flex h-14 w-14 items-center justify-center rounded-full border border-dashed border-[#8f93b8]">
-            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>
-            </svg>
-          </div>
-
-          <h2 class="mt-4 font-serif text-xl text-[#e4e5f2]">
-            Data Science Minor
-          </h2>
-          <p class="mt-1 text-sm text-[#8f93b8]">
-            Data-driven product thinking
-          </p>
-        </div>
-
-        <div class="flex flex-col items-center">
-          <div class="flex h-14 w-14 items-center justify-center rounded-full border border-dashed border-[#8f93b8]">
-            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/>
-              <path d="M19 17v4M17 19h4"/>
-            </svg>
-          </div>
-
-          <h2 class="mt-4 font-serif text-xl text-[#e4e5f2]">
-            AI &amp; FinTech
-          </h2>
-          <p class="mt-1 text-sm text-[#8f93b8]">
-            Product management focus
-          </p>
-        </div>
-
+      <div class="portrait">
+        <img src="ishan.jpeg" alt="Portrait of Ishan Bhalerao" />
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" aria-labelledby="projects-heading" class="bg-cream">
-      <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
-        <h2 id="projects-heading" class="serif-tight text-center font-serif text-4xl font-light sm:text-6xl">
-          Projects &amp; Product Specs
-        </h2>
+    <section class="credentials" aria-label="At a glance">
+      <div class="container credentials-grid">
+        <div class="credential">
+          <span class="credential-number">01</span>
+          <h2>Kelley School of Business</h2>
+          <p>B.S. Finance, Indiana University</p>
+        </div>
 
-        <p class="mx-auto mt-4 max-w-xl text-center text-ink/70">
-          Hands-on execution, software engines, technical PRDs, and deep-dive problem solving.
-        </p>
+        <div class="credential">
+          <span class="credential-number">02</span>
+          <h2>Data Science Minor</h2>
+          <p>Data-driven product thinking</p>
+        </div>
 
-        <div class="mt-12 grid gap-6 md:grid-cols-3">
-
-          <article class="flex min-h-[340px] flex-col rounded-[2rem] bg-olive p-9 transition hover:-translate-y-1">
-            <div class="flex flex-wrap gap-2">
-              <span class="rounded-full border border-ink/30 px-2.5 py-0.5 text-xs">Python</span>
-              <span class="rounded-full border border-ink/30 px-2.5 py-0.5 text-xs">yfinance API</span>
-              <span class="rounded-full border border-ink/30 px-2.5 py-0.5 text-xs">FX Settlement</span>
-            </div>
-
-            <h3 class="mt-5 font-serif text-2xl leading-snug">
-              Live Global Stock Exchange &amp; FX Execution Engine
-            </h3>
-
-            <p class="mt-4 flex-1 text-sm leading-relaxed text-ink/80">
-              Multi-currency settlement engine built with real-time market telemetry, currency fallback routing, and atomic state validation.
-            </p>
-
-            <a href="https://github.com/ishanabhalerao/stock-exchange-simulator"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="mt-6 inline-block w-fit border-b border-ink pb-0.5 font-serif text-lg">
-              View Project
-            </a>
-          </article>
-
-          <article class="flex min-h-[340px] flex-col rounded-[2rem] bg-olive p-9 transition hover:-translate-y-1">
-            <div class="flex flex-wrap gap-2">
-              <span class="rounded-full border border-ink/30 px-2.5 py-0.5 text-xs">
-                Technical Product Spec
-              </span>
-            </div>
-
-            <h3 class="mt-5 font-serif text-2xl leading-snug">
-              CrimsonRide Campus Transit PRD
-            </h3>
-
-            <p class="mt-4 flex-1 text-sm leading-relaxed text-ink/80">
-              Product spec for a dedicated transit and navigation hub for IU Campus Bus and Bloomington Transit riders. Replaces the unreliable bus tracker with traffic-adjusted ETAs, accurate active-bus counts, building-to-stop search, and a decluttered, labeled campus map. Target launch: December 2026.
-            </p>
-
-            <a href="crimsonride-prd.pdf"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="mt-6 inline-block w-fit border-b border-ink pb-0.5 font-serif text-lg">
-              Download Full PRD (PDF)
-            </a>
-          </article>
-
-          <article class="flex min-h-[340px] flex-col rounded-[2rem] bg-olive/70 p-9">
-            <div class="flex flex-wrap gap-2">
-              <span class="rounded-full border border-ink/30 px-2.5 py-0.5 text-xs">Technical PRD</span>
-              <span class="rounded-full border border-ink/30 px-2.5 py-0.5 text-xs">FinTech UX</span>
-              <span class="rounded-full border border-ink/30 px-2.5 py-0.5 text-xs">Conversion Rate</span>
-            </div>
-
-            <h3 class="mt-5 font-serif text-2xl leading-snug">
-              Capital One Onboarding Flow Optimization &amp; PRD
-            </h3>
-
-            <p class="mt-4 flex-1 text-sm leading-relaxed text-ink/80">
-              A comprehensive product spec and user journey redesign targeting drop-off reduction in mobile credit card application flows.
-            </p>
-
-            <span class="mt-6 inline-flex w-fit items-center gap-2 font-serif text-lg text-ink/60">
-              Coming Soon
-              <span class="rounded-full border border-ink/30 px-2 py-0.5 font-sans text-[10px] uppercase tracking-wider">
-                In progress
-              </span>
-            </span>
-          </article>
-
+        <div class="credential">
+          <span class="credential-number">03</span>
+          <h2>AI &amp; FinTech</h2>
+          <p>Product management focus</p>
         </div>
       </div>
     </section>
 
-    <!-- WRITING -->
-    <section id="writing" aria-labelledby="writing-heading" class="bg-cream">
-      <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
-        <h2 id="writing-heading" class="serif-tight text-center font-serif text-4xl font-light sm:text-6xl">
-          Monthly Writes
-        </h2>
-
-        <p class="mx-auto mt-4 max-w-xl text-center text-ink/70">
-          Breakdowns of tech economics, pricing strategies, and product positioning.
-          <span class="hidden lg:inline">Hover an article for the intro.</span>
+    <section class="section" id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <p class="eyebrow">Selected work</p>
+        <h2 class="section-title" id="projects-heading">Projects &amp; Product Specs</h2>
+        <p class="section-intro">
+          Software, product specifications, and research grounded in real problems.
         </p>
 
-        <div class="mt-12 grid gap-6 md:grid-cols-2">
+        <div class="project-grid">
+          <article class="card">
+            <span class="card-index">PROJECT 01</span>
 
-          <article class="article rounded-[2rem] border border-white/50 bg-white/30 p-7 transition hover:bg-white/45">
-            <span class="inline-block rounded-full bg-ink px-3 py-1 text-xs font-medium text-cream">
-              October 2026
-            </span>
+            <h3>Live Global Stock Exchange &amp; FX Execution Engine</h3>
 
-            <h3 class="mt-4 font-serif text-2xl leading-snug">
-              <a href="hidden-cost-of-ai.pdf"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 class="underline decoration-transparent underline-offset-4 transition hover:decoration-ink focus:decoration-ink focus:outline-none">
+            <p>
+              A multi-currency settlement engine with real-time market telemetry, currency fallback routing, and atomic state validation.
+            </p>
+
+            <div class="tags" aria-label="Project topics">
+              <span class="tag">Python</span>
+              <span class="tag">yfinance API</span>
+              <span class="tag">FX Settlement</span>
+            </div>
+
+            <a
+              class="card-link"
+              href="https://github.com/ishanabhalerao/stock-exchange-simulator"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View project ↗
+            </a>
+          </article>
+
+          <article class="card">
+            <span class="card-index">PROJECT 02</span>
+
+            <h3>CrimsonRide Campus Transit PRD</h3>
+
+            <p>
+              A product spec for an IU transit and navigation hub, with traffic-adjusted ETAs, active-bus counts, building-to-stop search, and a clearer campus map.
+            </p>
+
+            <div class="tags" aria-label="Project topics">
+              <span class="tag">Technical Product Spec</span>
+              <span class="tag">Campus Transit</span>
+            </div>
+
+            <a
+              class="card-link"
+              href="crimsonride-prd.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Read the PRD ↗
+            </a>
+          </article>
+
+          <article class="card">
+            <span class="card-index">PROJECT 03</span>
+
+            <h3>Capital One Onboarding Flow Optimization</h3>
+
+            <p>
+              A product spec and user journey redesign focused on reducing drop-off in mobile credit card applications.
+            </p>
+
+            <div class="tags" aria-label="Project topics">
+              <span class="tag">Technical PRD</span>
+              <span class="tag">FinTech UX</span>
+              <span class="tag">Conversion</span>
+            </div>
+
+            <span class="coming-soon">Coming soon</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section writing-section" id="writing" aria-labelledby="writing-heading">
+      <div class="container">
+        <p class="eyebrow">Ideas and analysis</p>
+        <h2 class="section-title" id="writing-heading">Monthly Writes</h2>
+        <p class="section-intro">
+          My thoughts on technology economics, financial products, and product strategy.
+        </p>
+
+        <div class="writing-grid">
+          <article class="article">
+            <span class="article-date">October 2026</span>
+
+            <h3>
+              <a href="hidden-cost-of-ai.pdf" target="_blank" rel="noopener noreferrer">
                 The Hidden Math of AI Pricing: Why Output Tokens Break Unit Economics
               </a>
             </h3>
 
-            <div class="reveal">
-              <div>
-                <div class="mt-4 flex flex-wrap gap-2">
-                  <span class="rounded-full border border-ink/30 px-2.5 py-0.5 text-xs">AI Unit Economics</span>
-                  <span class="rounded-full border border-ink/30 px-2.5 py-0.5 text-xs">Compute vs Memory</span>
-                  <span class="rounded-full border border-ink/30 px-2.5 py-0.5 text-xs">Substack</span>
-                </div>
+            <p>
+              An exploration of GPU memory bottlenecks, model pricing, and ways product teams can manage AI costs without sacrificing quality.
+            </p>
 
-                <p class="mt-4 text-sm leading-relaxed text-ink/80">
-                  Why does asking AI to generate text cost 500% more than giving it a prompt? From GPU memory bandwidth bottlenecks to McKinsey budget overruns, this article explores the hidden unit economics behind Large Language Models—and provides a practical framework for PMs, founders, and engineers to optimize AI spend without sacrificing output quality.
-                </p>
-
-                <a href="hidden-cost-of-ai.pdf"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="mt-5 inline-block border-b border-ink pb-0.5 font-serif text-lg">
-                  Read Full Article (PDF)
-                </a>
-              </div>
-            </div>
+            <a
+              class="card-link"
+              href="hidden-cost-of-ai.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Read the article ↗
+            </a>
           </article>
 
-          <article class="article rounded-[2rem] border border-dashed border-ink/40 p-7 transition hover:bg-white/20" tabindex="0">
-            <div class="flex flex-wrap items-center gap-2">
-              <span class="inline-block rounded-full border border-ink/50 px-3 py-1 text-xs font-medium">
-                November 2026
-              </span>
-              <span class="inline-block rounded-full bg-blush px-3 py-1 text-xs font-medium">
-                Drafting
-              </span>
-            </div>
+          <article class="article">
+            <span class="article-date">November 2026 · In progress</span>
 
-            <h3 class="mt-4 font-serif text-2xl leading-snug">
-              The Neobank Dilemma: How Online Banks Monetize Without Overdraft Fees
-            </h3>
+            <h3>The Neobank Dilemma: How Online Banks Monetize Without Overdraft Fees</h3>
 
-            <div class="reveal">
-              <div>
-                <div class="mt-4 flex flex-wrap gap-2">
-                  <span class="rounded-full border border-ink/30 px-2.5 py-0.5 text-xs">FinTech Strategy</span>
-                  <span class="rounded-full border border-ink/30 px-2.5 py-0.5 text-xs">Interchange Fees</span>
-                  <span class="rounded-full border border-ink/30 px-2.5 py-0.5 text-xs">Risk Management</span>
-                </div>
+            <p>
+              A closer look at interchange revenue, banking business models, and the trade-offs facing digital-first financial platforms.
+            </p>
 
-                <p class="mt-4 text-sm leading-relaxed text-ink/80">
-                  Dissecting the revenue models, interchange dynamics, and credit loss trade-offs of digital-first banking platforms.
-                </p>
-              </div>
-            </div>
+            <span class="coming-soon">Coming soon</span>
           </article>
-
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <div class="bg-lav">
-      <section id="contact" aria-labelledby="contact-heading" class="rounded-b-[3rem] bg-blush">
-        <div class="mx-auto max-w-3xl px-5 py-20 text-center sm:px-8 sm:py-32">
-          <h2 id="contact-heading" class="serif-tight font-serif text-4xl font-light sm:text-6xl">
-            Get in Touch!
-          </h2>
+    <section class="section contact" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <p class="eyebrow">Let’s connect</p>
+        <h2 class="section-title" id="contact-heading">Get in touch.</h2>
 
-          <p class="mx-auto mt-4 max-w-lg text-ink/80">
-            Hiring for a FinTech PM, APM, or Founder's Office role? I’d love to hear from you.
-          </p>
+        <p class="section-intro">
+          Interested in my work or hiring for a FinTech PM, APM, or Founder's Office role? I’d love to hear from you.
+        </p>
 
-          <div class="mt-8 flex flex-wrap justify-center gap-3">
-            <a href="mailto:ishan.a.bhalerao@gmail.com"
-               class="inline-flex items-center rounded-full border border-ink/60 bg-cream px-6 py-2.5 text-sm font-medium transition hover:-translate-y-0.5">
-              Contact Email
-            </a>
-
-            <a href="https://www.linkedin.com/in/ishan-bhalerao-018367415/"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="inline-flex items-center rounded-full border border-ink/40 px-6 py-2.5 text-sm font-medium transition hover:-translate-y-0.5 hover:bg-white/30">
-              LinkedIn
-            </a>
-
-            <a href="https://github.com/ishanabhalerao"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="inline-flex items-center rounded-full border border-ink/40 px-6 py-2.5 text-sm font-medium transition hover:-translate-y-0.5 hover:bg-white/30">
-              GitHub
-            </a>
-          </div>
+        <div class="contact-actions">
+          <a class="button button-primary" href="mailto:ishan.a.bhalerao@gmail.com">
+            Send an email
+          </a>
+          <a
+            class="button button-outline"
+            href="https://www.linkedin.com/in/ishan-bhalerao-018367415/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+          <a
+            class="button button-outline"
+            href="https://github.com/ishanabhalerao"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
         </div>
-      </section>
-
-      <footer>
-        <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-5 py-10 sm:flex-row sm:px-8">
-          <span class="font-serif text-3xl">Ishan Bhalerao</span>
-
-          <div class="text-center text-sm text-ink/80 sm:text-right">
-            <a href="mailto:ishan.a.bhalerao@gmail.com" class="underline-offset-4 hover:underline">
-              ishan.a.bhalerao@gmail.com
-            </a>
-            <div class="mt-1 text-ink/60">© 2026 Ishan Bhalerao</div>
-          </div>
-        </div>
-      </footer>
-    </div>
-
+      </div>
+    </section>
   </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a class="wordmark" href="#top">Ishan<span>.</span></a>
+      <p>© 2026 Ishan Bhalerao</p>
+      <a href="mailto:ishan.a.bhalerao@gmail.com">ishan.a.bhalerao@gmail.com</a>
+    </div>
+  </footer>
 </body>
 </html>
